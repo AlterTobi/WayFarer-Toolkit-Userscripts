@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WFTU Open In
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0
+// @version      0.2.1
 // @description  add "Open In" for maps
 // @author       AlterTobi
 // @match        https://wayfarer.nianticlabs.com/*
@@ -100,9 +100,7 @@
         		let link = customMaps[i].url;
 
         		//Link editing:
-        		link = link.replace(/%lat%/g, lat);
-        		link = link.replace(/%lng%/g, lng);
-        		link = link.replace(/%title%/g, title);
+        		link = link.replace(/%lat%/g, lat).replace(/%lng%/g, lng);
 
         		let button = document.createElement("a");
         		button.href = link;
