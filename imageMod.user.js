@@ -20,7 +20,33 @@
             let customStyleElem = document.createElement("style");
             customStyleElem.setAttribute('id',myID);
             customStyleElem.innerText = `
-    `;
+				@font-face {
+				  font-family: 'Material Icons';
+				  font-style: normal;
+				  font-weight: 400;
+				  src: url(https://fonts.gstatic.com/s/materialicons/v103/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+				}
+				
+				.material-icons {
+				  font-family: 'Material Icons';
+				  font-weight: normal;
+				  font-style: normal;
+				  font-size: 36px;
+				  line-height: 1;
+				  letter-spacing: normal;
+				  text-transform: none;
+				  display: inline-block;
+				  white-space: nowrap;
+				  word-wrap: normal;
+				  direction: ltr;
+				  -webkit-font-feature-settings: 'liga';
+				  -webkit-font-smoothing: antialiased;
+				}
+				.lupe {
+				  z-index: 9999;
+				  position: fixed;
+				}
+            `;
             headElem.appendChild(customStyleElem);
     	}
     }
@@ -29,37 +55,35 @@
     	let a = document.createElement("a");
     	let span = document.createElement("span");
 
-        span.className = "glyphicon glyphicon-search";
+        span.className = "material-icons";
+        span.innerText = 'search';
     	a.appendChild(span);
-    	a.setAttribute("style", style);
-    	a.className = "button btn btn-default";
-    	a.style.width = "min-content";
-    	a.style.position = "absolute";
     	a.target = target;
     	a.href = url;
-
-    	elem.insertAdjacentElement("afterBegin",a);
+        a.className = "lupe";
+    	elem.insertAdjacentElement("afterEnd",a);
     }
 
     function addFullSizeImageLinks() {
     	let elem, imageUrl;
     	let myData = window.wft.reviewApp.pageData;
 
+        addCSS();
     	switch (myData.type) {
     		case "NEW":
-    			elem = document.getElementById("photo-card").querySelector("div.card__body");
+    			elem = document.getElementsByClassName("wf-image-modal flex-grow bg-contain bg-center bg-no-repeat");
     			imageUrl = myData.imageUrl + "=s0";
-    			addFullImageButton(elem,imageUrl,'mainImage');
+    			addFullImageButton(elem[0],imageUrl,'mainImage');
 
     			//Supporting Image
         		if (myData.supportingImageUrl){
-        			elem = document.getElementById("supporting-card").querySelector("div.card__body");
         			imageUrl = myData.supportingImageUrl + "=s0";
-        			addFullImageButton(elem,imageUrl,'supportingImage')
+        			addFullImageButton(elem[1],imageUrl,'supportingImage')
         		}
     			break;
     		case "EDIT":
-        		elem = document.querySelector("div.known-information.known-information__image.clickable");
+                break;
+//        		elem = document.querySelector("div.known-information.known-information__image.clickable");
         		imageUrl = myData.imageUrl + "=s0";
         		addFullImageButton(elem,imageUrl,'mainImage', "position: relative; top: -125px; left: 25px;");
     			break;
