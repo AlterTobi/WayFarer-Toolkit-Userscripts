@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WFTU Open In
 // @namespace    http://tampermonkey.net/
-// @version      0.2.1
+// @version      0.2.2
 // @description  add "Open In" for maps
 // @author       AlterTobi
 // @match        https://wayfarer.nianticlabs.com/*
@@ -128,7 +128,7 @@
     }
 
     function addDropdownReview() {
-        let elem;
+        let elem, elemlist;
 
         console.warn('WFTU addDropdownReview triggered - ', window.wft.reviewApp.pageData.type);
         addCSS();
