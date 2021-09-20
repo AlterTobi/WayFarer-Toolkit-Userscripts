@@ -20,13 +20,13 @@
             let customStyleElem = document.createElement("style");
             customStyleElem.setAttribute('id',myID);
             customStyleElem.innerText = `
-.material-icons-fontsize {
-  font-size: 48px;
-}
-.lupe {
-  z-index: 9999;
-  position: absolute;
-}
+				.material-icons-fontsize {
+				  font-size: 48px;
+				}
+				.lupe {
+				  z-index: 9999;
+				  position: absolute;
+				}
     `;
             headElem.appendChild(customStyleElem);
     	}
