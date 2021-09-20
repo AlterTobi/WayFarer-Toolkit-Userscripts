@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WFTU Open In
 // @namespace    http://tampermonkey.net/
-// @version      0.2.2
+// @version      0.2.3
 // @description  add "Open In" for maps
 // @author       AlterTobi
 // @match        https://wayfarer.nianticlabs.com/*
@@ -150,9 +150,9 @@
     			break;
     		case "EDIT":
                 console.log('WFTU -- EDIT');
-                elemlist = document.getElementsByClassName("review-edit-info__info--placeholder");
+                elemlist = document.getElementsByClassName("review-edit-info card p-4 ng-star-inserted");
                 elem = elemlist[elemlist.length-1];
-                elem.insertAdjacentElement('beforeend', mainButton);
+                elem.insertAdjacentElement('afterEnd', mainButton);
     			break;
     		case "PHOTO":
                 console.log('WFTU -- PHOTO');
