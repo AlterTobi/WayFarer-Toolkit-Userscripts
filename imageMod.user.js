@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WFTU image Mods
 // @namespace    http://tampermonkey.net/
-// @version      0.0.1
+// @version      0.0.2
 // @description  open fullsize images in "named" tabs
 // @author       AlterTobi
 // @match        https://wayfarer.nianticlabs.com/*
@@ -20,19 +20,22 @@
             let customStyleElem = document.createElement("style");
             customStyleElem.setAttribute('id',myID);
             customStyleElem.innerText = `
-.material-icons-fontsize {
-  font-size: 48px;
-}
-.lupe {
-  z-index: 9999;
-  position: absolute;
-}
+				.material-icons-fontsize {
+				  font-size: 48px;
+				}
+				.lupe {
+				  z-index: 9999;
+				  position: absolute;
+				}
+				.bottom {
+                  bottom: 0px;
+				}
     `;
             headElem.appendChild(customStyleElem);
     	}
     }
 
-    function addFullImageButton(elem, url, target, style = ""){
+    function addFullImageButton(elem, url, target, position = "afterEnd", styleclass = 'lupe'){
     	let a = document.createElement("a");
     	let span = document.createElement("span");
 
@@ -41,10 +44,9 @@
     	a.appendChild(span);
     	a.target = target;
     	a.href = url;
-        a.className = "lupe";
-
-        elem.parentNode.style += " position: relative";
-    	elem.insertAdjacentElement("afterEnd",a);
+        a.className = styleclass;
+        elem.parentNode.style.position = "relative";
+    	elem.insertAdjacentElement(position,a);
     }
 
     function addFullSizeImageLinks() {
@@ -65,11 +67,16 @@
         		}
     			break;
     		case "EDIT":
-                elem = document.getElementsByClassName("wf-image-modal flex-grow bg-contain bg-center bg-no-repeat");
+                elem = document.getElementsByClassName("wf-image-modal");
         		imageUrl = myData.imageUrl + "=s0";
-        		addFullImageButton(elem[0],imageUrl,'mainImage');
+        		addFullImageButton(elem[0],imageUrl,'mainImage','beforeBegin');
     			break;
     		case "PHOTO":
+    			elem = document.getElementsByClassName("photo-card__photo");
+    			for (let i=0; i < elem.length; i++){
+    				imageUrl = myData.newPhotos[i].value + "=s0";
+    				addFullImageButton(elem[i].parentNode.parentNode.parentNode,imageUrl,'additionalImage','beforeEnd', 'lupe bottom');
+    			}
     			break;
     	}
     }
