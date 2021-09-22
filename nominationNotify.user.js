@@ -137,10 +137,10 @@
 	}
 
     function NominationPageLoaded() {
-        console.log('WFTU nomination Notify: NominationPageLoaded loaded');
-        addCSS();
+    	console.log('WFTU nomination Notify: NominationPageLoaded loaded');
+    	addCSS();
     	createNotificationArea();
-		detectChange();
+    	detectChange();
     }
 
     let loadNomTimerId = null;
