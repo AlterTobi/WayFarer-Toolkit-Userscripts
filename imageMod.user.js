@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WFTU image Mods
 // @namespace    http://tampermonkey.net/
-// @version      0.0.2
+// @version      0.1.0
 // @description  open fullsize images in "named" tabs
 // @author       AlterTobi
 // @match        https://wayfarer.nianticlabs.com/*
@@ -26,6 +26,7 @@
 				.lupe {
 				  z-index: 9999;
 				  position: absolute;
+				  left: 0px;
 				}
 				.bottom {
                   bottom: 0px;
