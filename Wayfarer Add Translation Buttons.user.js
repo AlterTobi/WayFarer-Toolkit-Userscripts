@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Wayfarer Add Translation Buttons
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Adds buttons to translate parts or all of the text associated with a wayspot
 // @author       MrJPGames / AlterTobi
 // @match        https://wayfarer.nianticlabs.com/*
