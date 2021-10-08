@@ -1,8 +1,10 @@
 # !important
-I'm going to archive (close) this repository soon. Since the maintainer of WayFarer Toolkit abandoned 
+This repository is now in read-only state. Since the maintainer of WayFarer Toolkit abandoned 
 all work on Wayfarer tools, there is no development for WayFarer Toolkit anymore.
 
-You will find a possible alternative in my [Wayfarer Extension Scripts](https://github.com/AlterTobi/Wayfarer-Extension-Scripts).
+I'll leave this repository online for reference.
+
+You will find an alternative in my [Wayfarer Extension Scripts](https://github.com/AlterTobi/Wayfarer-Extension-Scripts).
 
 
 # WayFarer-Toolkit-Userscripts
